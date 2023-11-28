@@ -8,6 +8,7 @@ WIDTH, HEIGHT = 1600, 900
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     fps = 50
+    vx = vy = 5
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex02/fig/3.png")
@@ -28,6 +29,9 @@ def main():
         screen.blit(kk_img, [900, 400])
         screen.blit(bomb_sfc, [bomx, bomy])
         pg.display.update()
+        bomx += vx
+        bomy += vy
+        bomb.move_ip(bomx, bomy)
         tmr += 1
         clock.tick(fps)
 
